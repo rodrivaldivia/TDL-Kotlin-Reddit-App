@@ -1,15 +1,34 @@
 package com.example.fiubareddit
 
-import android.os.Bundle
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
-import android.view.Menu
-import android.view.MenuItem
+import android.os.Bundle
+import android.widget.ImageView
+import android.widget.TextView
+import com.bumptech.glide.Glide
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        // Specify the layout you are using.
+        setContentView(R.layout.activity_main)
+
+        // Load views
+        val textTitle: TextView = findViewById(R.id.Title)
+        val textBody: TextView = findViewById(R.id.Body)
+        val imageView: ImageView = findViewById(R.id.imageView)
+
+        // Create a post
+        val unPost = Post("Un gatito", "Esta es una foto de un gatito OwO", "https://i.imgur.com/F0cpTWT.jpg")
+
+        // Display
+        textTitle.text = unPost.title
+        Glide.with(this).load(unPost.image).into(imageView)
+        textBody.text = unPost.text
+    }
+
+    /*override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(findViewById(R.id.toolbar))
@@ -34,5 +53,5 @@ class MainActivity : AppCompatActivity() {
             R.id.action_settings -> true
             else -> super.onOptionsItemSelected(item)
         }
-    }
+    }*/
 }

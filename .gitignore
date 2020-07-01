@@ -2,6 +2,10 @@
 # Created by https://www.toptal.com/developers/gitignore/api/android,kotlin
 # Edit at https://www.toptal.com/developers/gitignore?templates=android,kotlin
 
+
+### .idea folder ###
+.idea
+
 ### Android ###
 # Built application files
 *.apk
