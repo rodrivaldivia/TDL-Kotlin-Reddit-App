@@ -1,4 +1,4 @@
-package com.example.fiubareddit
+package com.tdl.fiubaReddit
 
 import org.junit.Test
 

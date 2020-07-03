@@ -1,4 +1,4 @@
-package com.example.fiubareddit
+package com.tdl.fiubaReddit
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

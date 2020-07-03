@@ -1,4 +1,4 @@
-package com.example.fiubareddit
+package com.tdl.fiubaReddit
 
 class Post(val title: String, val text: String? = null, val image: String? = null) {
 

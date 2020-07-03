@@ -1,4 +1,4 @@
-package com.example.fiubareddit
+package com.tdl.fiubaReddit
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

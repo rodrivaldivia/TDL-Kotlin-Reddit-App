@@ -1,4 +1,4 @@
-package com.example.fiubareddit
+package com.tdl.fiubaReddit
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -12,7 +12,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         // Specify the layout you are using.
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.post_view)
 
         // Load views
         val textTitle: TextView = findViewById(R.id.Title)
@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         val imageView: ImageView = findViewById(R.id.imageView)
 
         // Create a post
-        val unPost = Post("Un gatito", "Esta es una foto de un gatito OwO", "https://i.imgur.com/F0cpTWT.jpg")
+        val unPost = Post("Un gatito", "Esta es una foto de un gatito OwO", getString(R.string.cat_photo1))
 
         // Display
         textTitle.text = unPost.title
@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
 
     /*override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.post_view)
         setSupportActionBar(findViewById(R.id.toolbar))
 
         findViewById<FloatingActionButton>(R.id.fab).setOnClickListener { view ->
