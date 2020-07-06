@@ -5,22 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backGroundColor"
-    tools:context=".MainActivity">
+    tools:context=".posts.Posts">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/post_image"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:contentDescription="@string/post_image"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Title"
+        app:layout_constraintTop_toBottomOf="@+id/post_title"
         app:layout_constraintVertical_bias="0.050000012"
         app:srcCompat="@drawable/ic_launcher_foreground" />
 
     <TextView
-        android:id="@+id/Body"
+        android:id="@+id/post_body"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/sample_text"
@@ -29,11 +29,11 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/post_image"
         app:layout_constraintVertical_bias="0.050000012" />
 
     <TextView
-        android:id="@+id/Title"
+        android:id="@+id/post_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/title_sample"
