@@ -4,10 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.BaseAdapter
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import com.bumptech.glide.Glide
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
@@ -39,13 +36,13 @@ class PostsAdapter(private val context: Context,
 
         val post = getItem(position) as Post
 
-        rowView.findViewById<FloatingActionButton>(R.id.upvoteButton).setOnClickListener { view ->
+        rowView.findViewById<ImageButton>(R.id.upvoteButton).setOnClickListener {
             val mToast = Toast.makeText(context,"upvoted", Toast.LENGTH_SHORT)
             mToast.show()
             post.unaryPlus()
         }
 
-        rowView.findViewById<FloatingActionButton>(R.id.downvoteButton).setOnClickListener { view ->
+        rowView.findViewById<ImageButton>(R.id.downvoteButton).setOnClickListener { view ->
             val mToast = Toast.makeText(context,"downvoted", Toast.LENGTH_SHORT)
             mToast.show()
             post.unaryMinus()
