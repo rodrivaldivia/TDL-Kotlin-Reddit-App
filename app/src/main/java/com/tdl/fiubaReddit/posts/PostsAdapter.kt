@@ -7,7 +7,10 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import com.bumptech.glide.Glide
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.snackbar.Snackbar
 import com.tdl.fiubaReddit.Post
 import com.tdl.fiubaReddit.R
 
@@ -35,6 +38,19 @@ class PostsAdapter(private val context: Context,
         val postImageView = rowView.findViewById(R.id.post_image) as ImageView
 
         val post = getItem(position) as Post
+
+        rowView.findViewById<FloatingActionButton>(R.id.upvoteButton).setOnClickListener { view ->
+            val mToast = Toast.makeText(context,"upvoted", Toast.LENGTH_SHORT)
+            mToast.show()
+            post.unaryPlus()
+        }
+
+        rowView.findViewById<FloatingActionButton>(R.id.downvoteButton).setOnClickListener { view ->
+            val mToast = Toast.makeText(context,"downvoted", Toast.LENGTH_SHORT)
+            mToast.show()
+            post.unaryMinus()
+        }
+
         titleTextView.text = post.title
         Glide.with(context).load(post.image).into(postImageView)
         detailTextView.text = post.text

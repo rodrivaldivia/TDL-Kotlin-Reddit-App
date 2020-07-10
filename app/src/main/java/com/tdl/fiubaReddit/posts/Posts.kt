@@ -47,13 +47,4 @@ class Posts() : AppCompatActivity() {
     }
 
 
-    fun upVote(v: View){
-        val mToast = Toast.makeText(applicationContext,"upvoted", Toast.LENGTH_SHORT)
-        mToast.show()
-    }
-
-    fun downVote(v: View){
-        val mToast = Toast.makeText(applicationContext,"downvoted", Toast.LENGTH_SHORT)
-        mToast.show()
-    }
 }
