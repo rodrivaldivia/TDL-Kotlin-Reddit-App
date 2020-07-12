@@ -1,8 +1,4 @@
-package com.tdl.fiubaReddit
-
-import android.view.View
-import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
+package com.tdl.fiubaReddit.post
 
 class Post(val title: String, val text: String? = null, val image: String? = null) {
 

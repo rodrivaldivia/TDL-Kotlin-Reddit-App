@@ -1,17 +1,13 @@
-package com.tdl.fiubaReddit.posts
+package com.tdl.fiubaReddit.postsList
 
 import android.os.Bundle
-import android.view.View
-import android.view.ViewGroup
 import android.widget.*
 import com.google.android.material.appbar.CollapsingToolbarLayout
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
-import com.tdl.fiubaReddit.Post
+import com.tdl.fiubaReddit.post.Post
 import com.tdl.fiubaReddit.R
-import android.widget.Button
-import android.widget.Toast
 
 class Posts() : AppCompatActivity() {
 

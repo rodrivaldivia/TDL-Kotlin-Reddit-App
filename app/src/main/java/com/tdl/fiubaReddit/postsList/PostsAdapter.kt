@@ -1,4 +1,4 @@
-package com.tdl.fiubaReddit.posts
+package com.tdl.fiubaReddit.postsList
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,9 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import com.bumptech.glide.Glide
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
-import com.tdl.fiubaReddit.Post
+import com.tdl.fiubaReddit.post.Post
 import com.tdl.fiubaReddit.R
 
 class PostsAdapter(private val context: Context,

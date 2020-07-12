@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".posts.Posts"
+            android:name=".postsList.Posts"
             android:label="@string/title_activity_posts"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>

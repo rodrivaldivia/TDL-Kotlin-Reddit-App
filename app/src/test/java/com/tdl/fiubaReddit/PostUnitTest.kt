@@ -1,5 +1,6 @@
 package com.tdl.fiubaReddit
 
+import com.tdl.fiubaReddit.post.Post
 import org.junit.Test
 
 import org.junit.Assert.*
@@ -58,7 +59,11 @@ class PostUnitTest {
     @Test
     fun checkGetImageNotNull() {
 
-        val unPost = Post("A post", "Body of the post", "https://i.imgur.com/AHMWTFa.jpeg")
+        val unPost = Post(
+            "A post",
+            "Body of the post",
+            "https://i.imgur.com/AHMWTFa.jpeg"
+        )
 
         assertEquals("https://i.imgur.com/AHMWTFa.jpeg", unPost.image)
     }
