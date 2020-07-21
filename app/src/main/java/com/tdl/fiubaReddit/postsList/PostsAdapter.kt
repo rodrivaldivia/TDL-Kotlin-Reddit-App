@@ -1,10 +1,12 @@
 package com.tdl.fiubaReddit.postsList
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.core.content.ContextCompat.startActivity
 import com.bumptech.glide.Glide
 import com.tdl.fiubaReddit.post.Post
 import com.tdl.fiubaReddit.R
@@ -37,13 +39,19 @@ class PostsAdapter(private val context: Context,
         rowView.findViewById<ImageButton>(R.id.upvoteButton).setOnClickListener {
             val mToast = Toast.makeText(context,"upvoted", Toast.LENGTH_SHORT)
             mToast.show()
-            post.unaryPlus()
+            post.unaryPlus();
         }
 
         rowView.findViewById<ImageButton>(R.id.downvoteButton).setOnClickListener { view ->
             val mToast = Toast.makeText(context,"downvoted", Toast.LENGTH_SHORT)
             mToast.show()
             post.unaryMinus()
+        }
+
+        rowView.findViewById<ImageButton>(R.id.messageButton).setOnClickListener {
+            val intent = Intent(context, Comments::class.java)
+            startActivity(context,intent,null)
+
         }
 
         titleTextView.text = post.title

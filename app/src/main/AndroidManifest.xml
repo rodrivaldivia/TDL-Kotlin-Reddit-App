@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.tdl.fiubaReddit">
-
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -13,6 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".postsList.Comments"></activity>
+        <activity
+            android:name=".postsList.ScrollingActivity"
+            android:label="@string/title_activity_scrolling"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".postsList.Posts"
             android:label="@string/title_activity_posts"
@@ -24,7 +27,5 @@
             </intent-filter>
         </activity>
     </application>
-
-
 
 </manifest>
