@@ -23,15 +23,14 @@
         android:id="@+id/post_body"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="92dp"
         android:text="@string/sample_text"
         android:textColor="@color/textColor"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/post_image"
-        app:layout_constraintVertical_bias="0.154" />
+        app:layout_constraintTop_toBottomOf="@+id/post_image" />
 
     <TextView
         android:id="@+id/post_title"
@@ -62,7 +61,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/post_image"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintVertical_bias="0.625"
         app:srcCompat="@mipmap/upvote" />
 
     <ImageButton
@@ -76,10 +75,10 @@
         android:background="@android:color/transparent"
         app:layout_constraintBottom_toTopOf="@+id/post_body"
         app:layout_constraintEnd_toStartOf="@+id/messageButton"
-        app:layout_constraintHorizontal_bias="0.869"
+        app:layout_constraintHorizontal_bias="0.678"
         app:layout_constraintStart_toEndOf="@+id/upvoteButton"
         app:layout_constraintTop_toBottomOf="@+id/post_image"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.58"
         app:srcCompat="@mipmap/downvote" />
 
     <ImageButton
@@ -93,7 +92,7 @@
         android:background="@android:color/transparent"
         app:layout_constraintBottom_toTopOf="@+id/post_body"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.881"
         app:layout_constraintStart_toEndOf="@+id/post_image"
         app:layout_constraintTop_toBottomOf="@+id/post_image"
         app:layout_constraintVertical_bias="0.428"
