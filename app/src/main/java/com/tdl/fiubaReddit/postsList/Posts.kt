@@ -11,23 +11,9 @@ import com.tdl.fiubaReddit.R
 
 class Posts() : AppCompatActivity() {
 
-
-    //private var listView: ListView =
-    private val unPost = Post(
-        "Un gatito",
-        "Esta es una foto de un gatito OwO",
-        "https://i.imgur.com/F0cpTWT.jpg"
-    )
-    private val otroPost = Post(
-        "Otro gatito",
-        "Esta es otra foto de un gatito OwO",
-        "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/cute-cat-captions-1563551865.jpg?crop=0.668xw:1.00xh;0.199xw,0&resize=480:*"
-    )
-
-    private val posts: ArrayList<Post> = arrayListOf(unPost, otroPost, unPost);
+    private val posts: ArrayList<Post> = Requests.getPosts(this); // arrayListOf(unPost, otroPost, unPost);
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_posts)
