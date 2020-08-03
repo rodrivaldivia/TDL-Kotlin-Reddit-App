@@ -30,19 +30,16 @@ class CommentsAdapter(private val context: Context, private val dataSource: Vect
     }
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-        // Get view for row item
+
         val rowView = inflater.inflate(R.layout.list_comment, parent, false)
-        // Get title element
+
         val usernameTextView = rowView.findViewById(R.id.username) as TextView
 
-        // Get subtitle element
         val commentTextView = rowView.findViewById(R.id.userComment) as TextView
 
-        // Get thumbnail element
         val userImageView = rowView.findViewById(R.id.userImage) as ImageView
 
         val comment = getItem(position) as UserComment
-
 
         usernameTextView.text = comment.username
         commentTextView.text = comment.text
