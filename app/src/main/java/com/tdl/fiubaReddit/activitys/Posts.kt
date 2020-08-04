@@ -1,4 +1,4 @@
-package com.tdl.fiubaReddit.postsList
+package com.tdl.fiubaReddit.activitys
 
 import android.os.Bundle
 import android.widget.*
@@ -8,10 +8,11 @@ import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import com.tdl.fiubaReddit.post.Post
 import com.tdl.fiubaReddit.R
+import com.tdl.fiubaReddit.postsList.PostsAdapter
 
 class Posts() : AppCompatActivity() {
 
-    private val posts: ArrayList<Post> = Requests.getPosts(this); // arrayListOf(unPost, otroPost, unPost);
+    private val posts: ArrayList<Post> = Requests.getPostsOFFLINE() // arrayListOf(unPost, otroPost, unPost);
 
     override fun onCreate(savedInstanceState: Bundle?) {
 

@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.tdl.fiubaReddit.R
+import com.tdl.fiubaReddit.post.UserComment
 import java.util.*
 
 class  CommentsAdapter(private val context: Context, private val dataSource: Vector<UserComment>): BaseAdapter() {

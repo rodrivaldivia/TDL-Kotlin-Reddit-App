@@ -8,9 +8,10 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.core.content.ContextCompat.startActivity
 import com.bumptech.glide.Glide
-import com.tdl.fiubaReddit.PostFullView
+import com.tdl.fiubaReddit.activitys.PostFullView
 import com.tdl.fiubaReddit.post.Post
 import com.tdl.fiubaReddit.R
+import com.tdl.fiubaReddit.activitys.Comments
 
 class PostsAdapter(private val context: Context,
                    private val dataSource: ArrayList<Post>): BaseAdapter() {

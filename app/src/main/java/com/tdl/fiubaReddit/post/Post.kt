@@ -1,8 +1,5 @@
 package com.tdl.fiubaReddit.post
 
-import com.github.kittinunf.fuel.core.ResponseDeserializable
-import com.google.gson.Gson
-import com.tdl.fiubaReddit.postsList.UserComment
 import java.io.Serializable
 import java.util.*
 

@@ -1,19 +1,88 @@
 import android.content.Context
-import com.beust.klaxon.JsonArray
-import com.beust.klaxon.JsonObject
-import com.beust.klaxon.Parser
-import com.github.kittinunf.fuel.Fuel
-import com.github.kittinunf.fuel.core.ResponseDeserializable
-import com.google.gson.Gson
 import com.tdl.fiubaReddit.post.Post
-import com.tdl.fiubaReddit.postsList.UserComment
+import com.tdl.fiubaReddit.post.UserComment
 import java.util.*
 import kotlin.collections.ArrayList
-import kotlin.coroutines.coroutineContext
 
 class Requests {
+
     companion object {
         val server = "localhost:8080";
+
+        val posts = arrayListOf<Post>()
+
+        val unPost = Post(
+            "Un gatito",
+            "Esta es una foto de un gatito OwO",
+            "https://i.imgur.com/F0cpTWT.jpg"
+        )
+
+        val otroPost = Post(
+            "Otro gatito",
+            "Esta es otra foto de un gatito OwO",
+            "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/cute-cat-captions-1563551865.jpg?crop=0.668xw:1.00xh;0.199xw,0&resize=480:*"
+        )
+
+        fun addComment(comment: UserComment, postId: Int) {
+            posts[0].comments.add(comment)
+        }
+
+        fun getPostComments(postId: Int) : Vector<UserComment> {
+            return posts[0].comments
+        }
+
+        fun getPostsOFFLINE() : ArrayList<Post> {
+            unPost.comments.add(
+                UserComment(
+                    "anonimo",
+                    "hi",
+                    "https://www.pinclipart.com/picdir/big/193-1931067_pixel-clipart-finn-50-x-50-px-png.png"
+                )
+            )
+            unPost.comments.add(
+                UserComment(
+                    "anonimo",
+                    "hi",
+                    "https://www.pinclipart.com/picdir/big/193-1931067_pixel-clipart-finn-50-x-50-px-png.png"
+                )
+            )
+            unPost.comments.add(
+                UserComment(
+                    "anonimo",
+                    "hi",
+                    "https://www.pinclipart.com/picdir/big/193-1931067_pixel-clipart-finn-50-x-50-px-png.png"
+                )
+            )
+            unPost.comments.add(
+                UserComment(
+                    "anonimo",
+                    "hi",
+                    "https://www.pinclipart.com/picdir/big/193-1931067_pixel-clipart-finn-50-x-50-px-png.png"
+                )
+            )
+            unPost.comments.add(
+                UserComment(
+                    "anonimo",
+                    "hi",
+                    "https://www.pinclipart.com/picdir/big/193-1931067_pixel-clipart-finn-50-x-50-px-png.png"
+                )
+            )
+            unPost.comments.add(
+                UserComment(
+                    "anonimo",
+                    "hi",
+                    "https://www.pinclipart.com/picdir/big/193-1931067_pixel-clipart-finn-50-x-50-px-png.png"
+                )
+            )
+
+            posts.add(unPost)
+            posts.add(otroPost)
+            posts.add(unPost)
+
+            return posts;
+        }
+
+
         public fun getPosts(context: Context): ArrayList<Post> {
 
 
@@ -22,12 +91,48 @@ class Requests {
             "Esta es una foto de un gatito OwO",
             "https://i.imgur.com/F0cpTWT.jpg"
             )
-            unPost.comments.add(UserComment("anonimo","hi", "https://www.pinclipart.com/picdir/big/193-1931067_pixel-clipart-finn-50-x-50-px-png.png"))
-            unPost.comments.add(UserComment("anonimo","hi", "https://www.pinclipart.com/picdir/big/193-1931067_pixel-clipart-finn-50-x-50-px-png.png"))
-            unPost.comments.add(UserComment("anonimo","hi", "https://www.pinclipart.com/picdir/big/193-1931067_pixel-clipart-finn-50-x-50-px-png.png"))
-            unPost.comments.add(UserComment("anonimo","hi", "https://www.pinclipart.com/picdir/big/193-1931067_pixel-clipart-finn-50-x-50-px-png.png"))
-            unPost.comments.add(UserComment("anonimo","hi", "https://www.pinclipart.com/picdir/big/193-1931067_pixel-clipart-finn-50-x-50-px-png.png"))
-            unPost.comments.add(UserComment("anonimo","hi", "https://www.pinclipart.com/picdir/big/193-1931067_pixel-clipart-finn-50-x-50-px-png.png"))
+            unPost.comments.add(
+                UserComment(
+                    "anonimo",
+                    "hi",
+                    "https://www.pinclipart.com/picdir/big/193-1931067_pixel-clipart-finn-50-x-50-px-png.png"
+                )
+            )
+            unPost.comments.add(
+                UserComment(
+                    "anonimo",
+                    "hi",
+                    "https://www.pinclipart.com/picdir/big/193-1931067_pixel-clipart-finn-50-x-50-px-png.png"
+                )
+            )
+            unPost.comments.add(
+                UserComment(
+                    "anonimo",
+                    "hi",
+                    "https://www.pinclipart.com/picdir/big/193-1931067_pixel-clipart-finn-50-x-50-px-png.png"
+                )
+            )
+            unPost.comments.add(
+                UserComment(
+                    "anonimo",
+                    "hi",
+                    "https://www.pinclipart.com/picdir/big/193-1931067_pixel-clipart-finn-50-x-50-px-png.png"
+                )
+            )
+            unPost.comments.add(
+                UserComment(
+                    "anonimo",
+                    "hi",
+                    "https://www.pinclipart.com/picdir/big/193-1931067_pixel-clipart-finn-50-x-50-px-png.png"
+                )
+            )
+            unPost.comments.add(
+                UserComment(
+                    "anonimo",
+                    "hi",
+                    "https://www.pinclipart.com/picdir/big/193-1931067_pixel-clipart-finn-50-x-50-px-png.png"
+                )
+            )
 
             val otroPost = Post(
             "Otro gatito",

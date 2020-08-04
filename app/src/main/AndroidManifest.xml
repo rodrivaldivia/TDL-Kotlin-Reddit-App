@@ -12,10 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".PostFullView"></activity>
-        <activity android:name=".postsList.Comments" />
+        <activity android:name=".activitys.PostFullView"></activity>
+        <activity android:name=".activitys.Comments" />
         <activity
-            android:name=".postsList.Posts"
+            android:name=".activitys.Posts"
             android:label="@string/title_activity_posts"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>

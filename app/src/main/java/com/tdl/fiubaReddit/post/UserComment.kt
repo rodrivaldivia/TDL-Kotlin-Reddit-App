@@ -1,4 +1,4 @@
-package com.tdl.fiubaReddit.postsList
+package com.tdl.fiubaReddit.post
 
 import java.io.Serializable
 
