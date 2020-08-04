@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.tdl.fiubaReddit.R
+import com.tdl.fiubaReddit.post.Post
 import java.util.*
 
 const val EMPTY_COMMENT = ""
@@ -20,12 +21,22 @@ class Comments : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.app_comments)
 
+        val post = intent.getSerializableExtra("Post") as Post
+        comments = post.comments
+        commentsSize = comments.capacity()
+
+        println("commentSize ${commentsSize}")
+
         findViewById<Button>(R.id.sendButton).setOnClickListener {
             val mToast = Toast.makeText(this,"posted", Toast.LENGTH_SHORT)
             mToast.show()
             getComment()
         }
         comment = findViewById<EditText>(R.id.editTextTextMultiLine)
+
+        val listView = findViewById<ListView>(R.id.commentView)
+        val adapter = CommentsAdapter(this, comments)
+        listView.adapter = adapter
 
     }
 

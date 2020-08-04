@@ -4,43 +4,46 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/backGroundColor"
-    tools:context=".postsList.Posts">
+    tools:context="com.tdl.fiubaReddit.PostFullView">
 
-    <Button
-        android:id="@+id/change_view"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="#00FFFFFF"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="@+id/post_image"
+    <ImageButton
+        android:id="@+id/messageButton"
+        android:layout_width="54dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/downvoteButton"
+        app:layout_constraintTop_toBottomOf="@+id/post_body"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@android:drawable/sym_action_chat" />
 
     <ImageView
         android:id="@+id/post_image"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:contentDescription="@string/post_image"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/post_title"
-        app:layout_constraintVertical_bias="0.050000012"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/ic_launcher_foreground" />
 
     <TextView
         android:id="@+id/post_body"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="92dp"
+        android:layout_marginTop="8dp"
         android:text="@string/sample_text"
         android:textColor="@color/textColor"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/post_image" />
 
@@ -48,6 +51,7 @@
         android:id="@+id/post_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:text="@string/title_sample"
         android:textColor="@color/textColor"
         android:textSize="30sp"
@@ -55,60 +59,44 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.050000012" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageButton
         android:id="@+id/upvoteButton"
         android:layout_width="45dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="11dp"
-        android:layout_marginEnd="343dp"
-        android:layout_marginRight="343dp"
-        android:layout_marginBottom="7dp"
+        android:layout_marginTop="16dp"
         android:background="@android:color/transparent"
-        app:layout_constraintBottom_toTopOf="@+id/post_body"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/post_image"
-        app:layout_constraintVertical_bias="0.625"
+        app:layout_constraintTop_toBottomOf="@+id/post_body"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@mipmap/upvote" />
 
     <ImageButton
         android:id="@+id/downvoteButton"
         android:layout_width="45dp"
         android:layout_height="50dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginBottom="3dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:background="@android:color/transparent"
-        app:layout_constraintBottom_toTopOf="@+id/post_body"
-        app:layout_constraintEnd_toStartOf="@+id/messageButton"
-        app:layout_constraintHorizontal_bias="0.678"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/upvoteButton"
-        app:layout_constraintTop_toBottomOf="@+id/post_image"
-        app:layout_constraintVertical_bias="0.58"
+        app:layout_constraintTop_toBottomOf="@+id/post_body"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@mipmap/downvote" />
 
-    <ImageButton
-        android:id="@+id/messageButton"
-        android:layout_width="54dp"
-        android:layout_height="62dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="200dp"
-        android:layout_marginRight="200dp"
-        android:layout_marginBottom="4dp"
-        android:background="@android:color/transparent"
-        app:layout_constraintBottom_toTopOf="@+id/post_body"
+    <ListView
+        android:id="@+id/commentView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:background="#FCFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.881"
-        app:layout_constraintStart_toEndOf="@+id/post_image"
-        app:layout_constraintTop_toBottomOf="@+id/post_image"
-        app:layout_constraintVertical_bias="0.428"
-        app:srcCompat="@android:drawable/sym_action_chat" />
-
-
+        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/messageButton"
+        app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

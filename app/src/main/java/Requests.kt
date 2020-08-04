@@ -6,6 +6,9 @@ import com.github.kittinunf.fuel.Fuel
 import com.github.kittinunf.fuel.core.ResponseDeserializable
 import com.google.gson.Gson
 import com.tdl.fiubaReddit.post.Post
+import com.tdl.fiubaReddit.postsList.UserComment
+import java.util.*
+import kotlin.collections.ArrayList
 import kotlin.coroutines.coroutineContext
 
 class Requests {
@@ -13,12 +16,19 @@ class Requests {
         val server = "localhost:8080";
         public fun getPosts(context: Context): ArrayList<Post> {
 
-            /*
+
             val unPost = Post(
             "Un gatito",
             "Esta es una foto de un gatito OwO",
             "https://i.imgur.com/F0cpTWT.jpg"
             )
+            unPost.comments.add(UserComment("anonimo","hi", "https://www.pinclipart.com/picdir/big/193-1931067_pixel-clipart-finn-50-x-50-px-png.png"))
+            unPost.comments.add(UserComment("anonimo","hi", "https://www.pinclipart.com/picdir/big/193-1931067_pixel-clipart-finn-50-x-50-px-png.png"))
+            unPost.comments.add(UserComment("anonimo","hi", "https://www.pinclipart.com/picdir/big/193-1931067_pixel-clipart-finn-50-x-50-px-png.png"))
+            unPost.comments.add(UserComment("anonimo","hi", "https://www.pinclipart.com/picdir/big/193-1931067_pixel-clipart-finn-50-x-50-px-png.png"))
+            unPost.comments.add(UserComment("anonimo","hi", "https://www.pinclipart.com/picdir/big/193-1931067_pixel-clipart-finn-50-x-50-px-png.png"))
+            unPost.comments.add(UserComment("anonimo","hi", "https://www.pinclipart.com/picdir/big/193-1931067_pixel-clipart-finn-50-x-50-px-png.png"))
+
             val otroPost = Post(
             "Otro gatito",
             "Esta es otra foto de un gatito OwO",
@@ -26,9 +36,9 @@ class Requests {
             )
 
             return arrayListOf(unPost, otroPost, unPost);
-            */
 
-            // ArrayList<Post>
+
+            /*
             val url = "http://192.168.0.125:8080/post";
 
             val posts = arrayListOf<Post>()
@@ -59,7 +69,7 @@ class Requests {
             }
 
             return posts;
-
+            */
         }
     }
 }

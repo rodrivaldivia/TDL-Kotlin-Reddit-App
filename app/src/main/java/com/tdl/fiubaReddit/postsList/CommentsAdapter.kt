@@ -11,7 +11,7 @@ import com.bumptech.glide.Glide
 import com.tdl.fiubaReddit.R
 import java.util.*
 
-class CommentsAdapter(private val context: Context, private val dataSource: Vector<UserComment>): BaseAdapter() {
+class  CommentsAdapter(private val context: Context, private val dataSource: Vector<UserComment>): BaseAdapter() {
 
     private val inflater: LayoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
 

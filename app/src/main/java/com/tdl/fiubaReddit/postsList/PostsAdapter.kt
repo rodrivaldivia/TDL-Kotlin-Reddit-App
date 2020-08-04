@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.core.content.ContextCompat.startActivity
 import com.bumptech.glide.Glide
+import com.tdl.fiubaReddit.PostFullView
 import com.tdl.fiubaReddit.post.Post
 import com.tdl.fiubaReddit.R
 
@@ -52,6 +53,12 @@ class PostsAdapter(private val context: Context,
             val intent = Intent(context, Comments::class.java)
             startActivity(context,intent,null)
 
+        }
+
+        rowView.findViewById<Button>(R.id.change_view).setOnClickListener {
+            val intent = Intent(context, PostFullView::class.java)
+            intent.putExtra("Post", post)
+            startActivity(context, intent,null)
         }
 
         titleTextView.text = post.title
