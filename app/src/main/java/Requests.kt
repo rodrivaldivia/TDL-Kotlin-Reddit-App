@@ -1,4 +1,8 @@
 import android.content.Context
+import com.beust.klaxon.JsonArray
+import com.beust.klaxon.JsonObject
+import com.beust.klaxon.Parser
+import com.github.kittinunf.fuel.Fuel
 import com.tdl.fiubaReddit.post.Post
 import com.tdl.fiubaReddit.post.UserComment
 import java.util.*
@@ -14,21 +18,30 @@ class Requests {
         val unPost = Post(
             "Un gatito",
             "Esta es una foto de un gatito OwO",
-            "https://i.imgur.com/F0cpTWT.jpg"
+            "https://i.imgur.com/F0cpTWT.jpg",
+            0
         )
 
         val otroPost = Post(
             "Otro gatito",
             "Esta es otra foto de un gatito OwO",
-            "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/cute-cat-captions-1563551865.jpg?crop=0.668xw:1.00xh;0.199xw,0&resize=480:*"
+            "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/cute-cat-captions-1563551865.jpg?crop=0.668xw:1.00xh;0.199xw,0&resize=480:*",
+            1
+        )
+
+        val rePost = Post(
+            "Un gatito",
+            "Esta es una foto de un gatito OwO",
+            "https://i.imgur.com/F0cpTWT.jpg",
+            2
         )
 
         fun addComment(comment: UserComment, postId: Int) {
-            posts[0].comments.add(comment)
+            posts[postId].comments.add(comment)
         }
 
         fun getPostComments(postId: Int) : Vector<UserComment> {
-            return posts[0].comments
+            return posts[postId].comments
         }
 
         fun getPostsOFFLINE() : ArrayList<Post> {
@@ -53,31 +66,10 @@ class Requests {
                     "https://www.pinclipart.com/picdir/big/193-1931067_pixel-clipart-finn-50-x-50-px-png.png"
                 )
             )
-            unPost.comments.add(
-                UserComment(
-                    "anonimo",
-                    "hi",
-                    "https://www.pinclipart.com/picdir/big/193-1931067_pixel-clipart-finn-50-x-50-px-png.png"
-                )
-            )
-            unPost.comments.add(
-                UserComment(
-                    "anonimo",
-                    "hi",
-                    "https://www.pinclipart.com/picdir/big/193-1931067_pixel-clipart-finn-50-x-50-px-png.png"
-                )
-            )
-            unPost.comments.add(
-                UserComment(
-                    "anonimo",
-                    "hi",
-                    "https://www.pinclipart.com/picdir/big/193-1931067_pixel-clipart-finn-50-x-50-px-png.png"
-                )
-            )
 
             posts.add(unPost)
             posts.add(otroPost)
-            posts.add(unPost)
+            posts.add(rePost)
 
             return posts;
         }
@@ -85,65 +77,6 @@ class Requests {
 
         public fun getPosts(context: Context): ArrayList<Post> {
 
-
-            val unPost = Post(
-            "Un gatito",
-            "Esta es una foto de un gatito OwO",
-            "https://i.imgur.com/F0cpTWT.jpg"
-            )
-            unPost.comments.add(
-                UserComment(
-                    "anonimo",
-                    "hi",
-                    "https://www.pinclipart.com/picdir/big/193-1931067_pixel-clipart-finn-50-x-50-px-png.png"
-                )
-            )
-            unPost.comments.add(
-                UserComment(
-                    "anonimo",
-                    "hi",
-                    "https://www.pinclipart.com/picdir/big/193-1931067_pixel-clipart-finn-50-x-50-px-png.png"
-                )
-            )
-            unPost.comments.add(
-                UserComment(
-                    "anonimo",
-                    "hi",
-                    "https://www.pinclipart.com/picdir/big/193-1931067_pixel-clipart-finn-50-x-50-px-png.png"
-                )
-            )
-            unPost.comments.add(
-                UserComment(
-                    "anonimo",
-                    "hi",
-                    "https://www.pinclipart.com/picdir/big/193-1931067_pixel-clipart-finn-50-x-50-px-png.png"
-                )
-            )
-            unPost.comments.add(
-                UserComment(
-                    "anonimo",
-                    "hi",
-                    "https://www.pinclipart.com/picdir/big/193-1931067_pixel-clipart-finn-50-x-50-px-png.png"
-                )
-            )
-            unPost.comments.add(
-                UserComment(
-                    "anonimo",
-                    "hi",
-                    "https://www.pinclipart.com/picdir/big/193-1931067_pixel-clipart-finn-50-x-50-px-png.png"
-                )
-            )
-
-            val otroPost = Post(
-            "Otro gatito",
-            "Esta es otra foto de un gatito OwO",
-            "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/cute-cat-captions-1563551865.jpg?crop=0.668xw:1.00xh;0.199xw,0&resize=480:*"
-            )
-
-            return arrayListOf(unPost, otroPost, unPost);
-
-
-            /*
             val url = "http://192.168.0.125:8080/post";
 
             val posts = arrayListOf<Post>()
@@ -166,7 +99,7 @@ class Requests {
                     val images = array.string("image")
 
                     for (i in 0..titles.size-1){
-                        val post = Post(titles[i].toString(), texts[i], images[i])
+                        val post = Post(titles[i].toString(), texts[i], images[i], i)
                         posts.add(post)
                     }
                 }
@@ -174,7 +107,6 @@ class Requests {
             }
 
             return posts;
-            */
         }
     }
 }

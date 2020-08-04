@@ -15,11 +15,14 @@ import java.util.*
 
 class PostFullView : AppCompatActivity() {
 
+    var postId = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_post_full_view)
 
         val post = intent.getSerializableExtra("Post") as Post
+        postId = post.postId
 
         // Load views
         val textTitle: TextView = findViewById(R.id.post_title)
@@ -62,7 +65,7 @@ class PostFullView : AppCompatActivity() {
         val listView = findViewById<ListView>(R.id.commentView)
 
         if (requestCode == 1) {
-            val comments = Requests.getPostComments(0)
+            val comments = Requests.getPostComments(postId)
 
             val adapter = CommentsAdapter(this, comments)
             listView.adapter = adapter

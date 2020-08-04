@@ -20,13 +20,15 @@ class Comments : AppCompatActivity() {
 
     private var comments = Vector<UserComment>()
 
+    var postId = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.app_comments)
 
         val post = intent.getSerializableExtra("Post") as Post
-
-        comments = Requests.getPostComments(0)
+        postId = post.postId
+        comments = Requests.getPostComments(postId)
 
         findViewById<Button>(R.id.sendButton).setOnClickListener {
             val mToast = Toast.makeText(this,"posted", Toast.LENGTH_SHORT)
@@ -50,7 +52,7 @@ class Comments : AppCompatActivity() {
                 getUserImage()
             )
 
-            Requests.addComment(userCom, 0)
+            Requests.addComment(userCom, postId)
             updateComments()
             comment.setText(EMPTY_COMMENT)
         }
@@ -67,7 +69,7 @@ class Comments : AppCompatActivity() {
     private fun updateComments() {
         val listView = findViewById<ListView>(R.id.commentView)
 
-        comments = Requests.getPostComments(0)
+        comments = Requests.getPostComments(postId)
         val adapter = CommentsAdapter(this, comments)
         listView.adapter = adapter
     }

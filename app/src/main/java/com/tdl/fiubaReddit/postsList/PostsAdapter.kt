@@ -52,6 +52,7 @@ class PostsAdapter(private val context: Context,
 
         rowView.findViewById<ImageButton>(R.id.messageButton).setOnClickListener {
             val intent = Intent(context, Comments::class.java)
+            intent.putExtra("Post", post)
             startActivity(context,intent,null)
 
         }
