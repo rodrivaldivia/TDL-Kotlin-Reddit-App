@@ -45,7 +45,7 @@ class Comments : AppCompatActivity() {
     }
 
     private fun getComment() {
-        if(comment.text.toString() != EMPTY_COMMENT){
+        if(comment.text.isNullOrEmpty()){
             val userCom = UserComment(
                 getUsername(),
                 comment.text.toString(),
