@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.tdl.fiubaReddit.R;
 import com.tdl.fiubaReddit.requests.Requests;
 
-public class NewPost extends AppCompatActivity {
+/*public class NewPost extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,4 +53,4 @@ public class NewPost extends AppCompatActivity {
                 return true;
         return false;
     }
-}
+}*/
