@@ -8,7 +8,7 @@ import com.tdl.fiubaReddit.R
 import com.tdl.fiubaReddit.requests.Requests
 import kotlinx.android.synthetic.main.activity_new_post.*
 
-class NewPost : AppCompatActivity() {
+/*class NewPost : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,4 +38,4 @@ class NewPost : AppCompatActivity() {
 fun isAnyStringNullOrEmpty(vararg strings: String?): Boolean {
     for (s in strings) if (s.isNullOrEmpty()) return true
     return false
-}
+}*/
