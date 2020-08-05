@@ -6,7 +6,6 @@ import android.widget.*
 import com.google.android.material.appbar.CollapsingToolbarLayout
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import androidx.appcompat.app.AppCompatActivity
-import com.tdl.fiubaReddit.post.Post
 import com.tdl.fiubaReddit.R
 import com.tdl.fiubaReddit.adapters.PostsAdapter
 import com.tdl.fiubaReddit.requests.Requests

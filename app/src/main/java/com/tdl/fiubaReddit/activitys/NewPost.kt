@@ -35,7 +35,7 @@ import com.tdl.fiubaReddit.requests.Requests
             if (isAnyStringNullOrEmpty(title, body, image)) {
                 Toast.makeText(this,"Oops, you forgot to fill in some fields!", Toast.LENGTH_SHORT).show()
             } else {
-                Requests.createPost(title, body, image)
+                com.tdl.fiubaReddit.requests.Requests.createPost(title, body, image)
 
                 Toast.makeText(this,"Uploaded king \uD83D\uDE09", Toast.LENGTH_SHORT).show()
 

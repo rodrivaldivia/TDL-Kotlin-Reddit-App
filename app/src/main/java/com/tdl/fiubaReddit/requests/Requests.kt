@@ -1,3 +1,5 @@
+package com.tdl.fiubaReddit.requests
+
 import android.content.Context
 import com.beust.klaxon.JsonArray
 import com.beust.klaxon.JsonObject
@@ -13,7 +15,6 @@ class Requests {
     companion object {
 
         val url = "http://192.168.0.125:8080/post";
-        val posts = arrayListOf<Post>()
 
         val unPost = Post(
             "Un gatito",
