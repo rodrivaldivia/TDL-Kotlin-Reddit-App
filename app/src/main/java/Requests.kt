@@ -11,8 +11,8 @@ import kotlin.collections.ArrayList
 class Requests {
 
     companion object {
-        val server = "localhost:8080";
 
+        val url = "http://192.168.0.125:8080/post";
         val posts = arrayListOf<Post>()
 
         val unPost = Post(
@@ -75,11 +75,24 @@ class Requests {
         }
 
 
+        public fun postPost(context: Context, title: String, text: String, image: String ) {
+            Fuel.post(url, listOf("title" to title, "text" to text, "image" to image))
+                .response { request, response, result ->
+                    println(request)
+                    println(response)
+                    val (bytes, error) = result
+                    println(error)
+                    if (bytes != null) {
+                        println("[response bytes] ${String(bytes)}")
+                    }
+                }
+        }
+
         public fun getPosts(context: Context): ArrayList<Post> {
 
-            val url = "http://192.168.0.125:8080/post";
-
             val posts = arrayListOf<Post>()
+
+
 
             Fuel.get(url)
                 .response { request, response, result ->
@@ -89,9 +102,7 @@ class Requests {
                 println(error)
                 if (bytes != null) {
                     println("[response bytes] ${String(bytes)}")
-                    //val list: List<Post> = JSON.parse(Post.serializer().list, bytes)
                     val parser: Parser = Parser.default()
-                    // val stringBuilder: StringBuilder = StringBuilder("{\"name\":\"Cedric Beust\", \"age\":23}")
                     val array = parser.parse(StringBuilder(String(bytes))) as JsonArray<JsonObject>
 
                     val titles = array.string("title")
