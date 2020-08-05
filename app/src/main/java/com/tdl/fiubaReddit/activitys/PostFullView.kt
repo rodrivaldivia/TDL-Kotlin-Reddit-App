@@ -1,17 +1,14 @@
 package com.tdl.fiubaReddit.activitys
 
-import android.app.VoiceInteractor
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
-import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.tdl.fiubaReddit.R
 import com.tdl.fiubaReddit.post.Post
-import com.tdl.fiubaReddit.post.UserComment
-import com.tdl.fiubaReddit.postsList.CommentsAdapter
-import java.util.*
+import com.tdl.fiubaReddit.adapters.CommentsAdapter
+import com.tdl.fiubaReddit.requests.Requests
 
 class PostFullView : AppCompatActivity() {
 

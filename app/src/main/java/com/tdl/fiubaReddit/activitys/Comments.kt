@@ -1,15 +1,14 @@
 package com.tdl.fiubaReddit.activitys
 
 
-import android.app.Activity
-import android.content.Intent
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.tdl.fiubaReddit.R
 import com.tdl.fiubaReddit.post.Post
-import com.tdl.fiubaReddit.postsList.CommentsAdapter
+import com.tdl.fiubaReddit.adapters.CommentsAdapter
 import com.tdl.fiubaReddit.post.UserComment
+import com.tdl.fiubaReddit.requests.Requests
 import java.util.*
 
 const val EMPTY_COMMENT = ""

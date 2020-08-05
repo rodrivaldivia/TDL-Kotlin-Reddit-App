@@ -1,4 +1,4 @@
-package com.tdl.fiubaReddit.postsList
+package com.tdl.fiubaReddit.adapters
 
 import android.content.Context
 import android.content.Intent
@@ -54,7 +54,6 @@ class PostsAdapter(private val context: Context,
             val intent = Intent(context, Comments::class.java)
             intent.putExtra("Post", post)
             startActivity(context,intent,null)
-
         }
 
         rowView.findViewById<Button>(R.id.change_view).setOnClickListener {

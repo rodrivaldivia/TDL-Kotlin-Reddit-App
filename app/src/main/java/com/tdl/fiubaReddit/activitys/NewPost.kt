@@ -1,15 +1,18 @@
 package com.tdl.fiubaReddit.activitys
 
-import androidx.appcompat.app.AppCompatActivity
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.RequestManager
 import com.tdl.fiubaReddit.R
+import com.tdl.fiubaReddit.requests.Requests
 
-class NewPost : AppCompatActivity() {
-
-    lateinit var mToast: Toast
+/*class NewPost : AppCompatActivity() {
 
     lateinit var postTitle: EditText
     lateinit var postBody: EditText
@@ -25,20 +28,26 @@ class NewPost : AppCompatActivity() {
 
         findViewById<Button>(R.id.button).setOnClickListener {
 
-            val title = postTitle.text
-            val body = postBody.text
-            val image = postImageURL.text
+            val title = postTitle.text.toString()
+            val body = postBody.text.toString()
+            val image = postImageURL.text.toString()
 
-            if (title.isNullOrEmpty() || body.isNullOrEmpty() || image.isNullOrEmpty()) {
-                mToast = Toast.makeText(this,"some elements are missing", Toast.LENGTH_SHORT)
-                mToast.show()
+            if (isAnyStringNullOrEmpty(title, body, image)) {
+                Toast.makeText(this,"Oops, you forgot to fill in some fields!", Toast.LENGTH_SHORT).show()
             } else {
-                mToast = Toast.makeText(this,"uploaded \uD83D\uDE09", Toast.LENGTH_SHORT)
+                Requests.createPost(title, body, image)
 
-                println("Title:$title, Body:$body, Image:$image")
-                mToast.show()
+                Toast.makeText(this,"Uploaded king \uD83D\uDE09", Toast.LENGTH_SHORT).show()
+
+                val intent = Intent()
+                setResult(RESULT_FIRST_USER, intent)
                 finish()
             }
         }
     }
 }
+
+fun isAnyStringNullOrEmpty(vararg strings: String?): Boolean {
+    for (s in strings) if (s.isNullOrEmpty()) return true
+    return false
+}*/

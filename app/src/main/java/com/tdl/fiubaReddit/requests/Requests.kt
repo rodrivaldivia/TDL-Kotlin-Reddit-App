@@ -1,4 +1,7 @@
+package com.tdl.fiubaReddit.requests
+
 import android.content.Context
+import android.text.Editable
 import com.beust.klaxon.JsonArray
 import com.beust.klaxon.JsonObject
 import com.beust.klaxon.Parser
@@ -12,8 +15,6 @@ class Requests {
 
     companion object {
         val server = "localhost:8080";
-
-        val posts = arrayListOf<Post>()
 
         val unPost = Post(
             "Un gatito",
@@ -36,6 +37,8 @@ class Requests {
             2
         )
 
+        val posts = arrayListOf<Post>(unPost, otroPost, rePost)
+
         fun addComment(comment: UserComment, postId: Int) {
             posts[postId].comments.add(comment)
         }
@@ -45,31 +48,27 @@ class Requests {
         }
 
         fun getPostsOFFLINE() : ArrayList<Post> {
-            unPost.comments.add(
+            posts[0].comments.add(
                 UserComment(
                     "anonimo",
                     "hi",
                     "https://www.pinclipart.com/picdir/big/193-1931067_pixel-clipart-finn-50-x-50-px-png.png"
                 )
             )
-            unPost.comments.add(
+            posts[0].comments.add(
                 UserComment(
                     "anonimo",
-                    "hi",
+                    "holis",
                     "https://www.pinclipart.com/picdir/big/193-1931067_pixel-clipart-finn-50-x-50-px-png.png"
                 )
             )
-            unPost.comments.add(
+            posts[0].comments.add(
                 UserComment(
                     "anonimo",
-                    "hi",
+                    "aloha",
                     "https://www.pinclipart.com/picdir/big/193-1931067_pixel-clipart-finn-50-x-50-px-png.png"
                 )
             )
-
-            posts.add(unPost)
-            posts.add(otroPost)
-            posts.add(rePost)
 
             return posts;
         }
@@ -107,6 +106,13 @@ class Requests {
             }
 
             return posts;
+        }
+
+        @JvmStatic fun createPost(title: String, body: String, image: String) {
+
+            val newId = posts.size
+            val newPost = Post(title, body, image, newId)
+            posts.add(newPost)
         }
     }
 }
