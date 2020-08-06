@@ -1,4 +1,4 @@
-package com.tdl.fiubaReddit.postsList
+package com.tdl.fiubaReddit.adapters
 
 import android.content.Context
 import android.view.LayoutInflater

@@ -1,44 +1,41 @@
 package com.tdl.fiubaReddit.activitys
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.tdl.fiubaReddit.R
+import com.tdl.fiubaReddit.requests.Requests
+import kotlinx.android.synthetic.main.activity_new_post.*
 
-class NewPost : AppCompatActivity() {
-
-    lateinit var mToast: Toast
-
-    lateinit var postTitle: EditText
-    lateinit var postBody: EditText
-    lateinit var postImageURL: EditText
+/*class NewPost : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new_post)
 
-        postTitle = findViewById<EditText>(R.id.post_title)
-        postBody = findViewById<EditText>(R.id.post_description)
-        postImageURL = findViewById<EditText>(R.id.post_image_url)
+        button.setOnClickListener {
 
-        findViewById<Button>(R.id.button).setOnClickListener {
+            val title = post_title.text.toString()
+            val body = post_description.text.toString()
+            val image = post_image_url.text.toString()
 
-            val title = postTitle.text
-            val body = postBody.text
-            val image = postImageURL.text
-
-            if (title.isNullOrEmpty() || body.isNullOrEmpty() || image.isNullOrEmpty()) {
-                mToast = Toast.makeText(this,"some elements are missing", Toast.LENGTH_SHORT)
-                mToast.show()
+            if (isAnyStringNullOrEmpty(title, body, image)) {
+                Toast.makeText(this,"Oops, you forgot to fill in some fields!", Toast.LENGTH_SHORT).show()
             } else {
-                mToast = Toast.makeText(this,"uploaded \uD83D\uDE09", Toast.LENGTH_SHORT)
+                Requests.createPost(title, body, image)
 
-                println("Title:$title, Body:$body, Image:$image")
-                mToast.show()
+                Toast.makeText(this,"Uploaded king \uD83D\uDE09", Toast.LENGTH_SHORT).show()
+
+                val intent = Intent()
+                setResult(RESULT_FIRST_USER, intent)
                 finish()
             }
         }
     }
 }
+
+fun isAnyStringNullOrEmpty(vararg strings: String?): Boolean {
+    for (s in strings) if (s.isNullOrEmpty()) return true
+    return false
+}*/

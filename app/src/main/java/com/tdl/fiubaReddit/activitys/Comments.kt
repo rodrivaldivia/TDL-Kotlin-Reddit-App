@@ -1,26 +1,24 @@
 package com.tdl.fiubaReddit.activitys
 
 
-import android.app.Activity
-import android.content.Intent
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.tdl.fiubaReddit.R
 import com.tdl.fiubaReddit.post.Post
-import com.tdl.fiubaReddit.postsList.CommentsAdapter
+import com.tdl.fiubaReddit.adapters.CommentsAdapter
 import com.tdl.fiubaReddit.post.UserComment
+import com.tdl.fiubaReddit.requests.Requests
+import kotlinx.android.synthetic.main.app_comments.*
 import java.util.*
 
 const val EMPTY_COMMENT = ""
 
 class Comments : AppCompatActivity() {
 
-    private lateinit var comment: EditText
-
     private var comments = Vector<UserComment>()
 
-    var postId = 0
+    private var postId = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,33 +26,31 @@ class Comments : AppCompatActivity() {
 
         val post = intent.getSerializableExtra("Post") as Post
         postId = post.postId
-        comments = Requests.getPostComments(postId)
+        comments = post.comments
 
-        findViewById<Button>(R.id.sendButton).setOnClickListener {
+        sendButton.setOnClickListener {
             val mToast = Toast.makeText(this,"posted", Toast.LENGTH_SHORT)
             mToast.show()
             getComment()
         }
 
-        comment = findViewById<EditText>(R.id.editTextTextMultiLine)
-
-        val listView = findViewById<ListView>(R.id.commentView)
         val adapter = CommentsAdapter(this, comments)
-        listView.adapter = adapter
+        commentView.adapter = adapter
 
     }
 
     private fun getComment() {
-        if(comment.text.isNullOrEmpty()){
+        if(!editTextTextMultiLine.text.isNullOrEmpty()){
             val userCom = UserComment(
                 getUsername(),
-                comment.text.toString(),
+                editTextTextMultiLine.text.toString(),
                 getUserImage()
             )
 
             Requests.addComment(userCom, postId)
+            comments.add(userCom)
             updateComments()
-            comment.setText(EMPTY_COMMENT)
+            editTextTextMultiLine.setText(EMPTY_COMMENT)
         }
     }
 
@@ -67,10 +63,8 @@ class Comments : AppCompatActivity() {
     }
 
     private fun updateComments() {
-        val listView = findViewById<ListView>(R.id.commentView)
 
-        comments = Requests.getPostComments(postId)
         val adapter = CommentsAdapter(this, comments)
-        listView.adapter = adapter
+        commentView.adapter = adapter
     }
 }
