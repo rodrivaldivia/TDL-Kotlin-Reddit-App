@@ -14,7 +14,8 @@ import com.tdl.fiubaReddit.postsList.PostsAdapter
 
 class Posts() : AppCompatActivity() {
 
-    //private val nada: Unit = Requests.postPost(this,"un titulo","un texto","https://i.imgur.com/F0cpTWT.jpg")
+    // private val nada: Unit = Requests.postPost(this,"un titulo","un texto","https://i.imgur.com/F0cpTWT.jpg")
+    // private val nada: Unit = Requests.postComment(this,1,"un texto","https://i.imgur.com/F0cpTWT.jpg")
     private val posts: ArrayList<Post> = Requests.getPostsOFFLINE(); // getPosts(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {

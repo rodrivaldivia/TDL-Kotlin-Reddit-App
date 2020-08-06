@@ -3,6 +3,7 @@ import com.beust.klaxon.JsonArray
 import com.beust.klaxon.JsonObject
 import com.beust.klaxon.Parser
 import com.github.kittinunf.fuel.Fuel
+import com.github.kittinunf.fuel.core.Method
 import com.tdl.fiubaReddit.post.Post
 import com.tdl.fiubaReddit.post.UserComment
 import java.util.*
@@ -77,6 +78,18 @@ class Requests {
 
         public fun postPost(context: Context, title: String, text: String, image: String ) {
             Fuel.post(url, listOf("title" to title, "text" to text, "image" to image))
+                .response { request, response, result ->
+                    println(request)
+                    println(response)
+                    val (bytes, error) = result
+                    println(error)
+                    if (bytes != null) {
+                        println("[response bytes] ${String(bytes)}")
+                    }
+                }
+        }
+        public fun postComment(context: Context, postId: Int, text: String, image: String ) {
+            Fuel.upload("$url/addcomment/$postId", Method.POST, listOf("text" to text, "image" to image))
                 .response { request, response, result ->
                     println(request)
                     println(response)
