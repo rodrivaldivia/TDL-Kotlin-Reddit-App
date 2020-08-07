@@ -11,6 +11,9 @@ import com.tdl.fiubaReddit.adapters.PostsAdapter
 import com.tdl.fiubaReddit.post.Post
 import com.tdl.fiubaReddit.requests.Requests
 
+import com.tdl.fiubaReddit.activitys.addPost.NewPost
+
+
 class Posts() : AppCompatActivity() {
 
     // private val nada: Unit = Requests.postPost(this,"un titulo","un texto","https://i.imgur.com/F0cpTWT.jpg")

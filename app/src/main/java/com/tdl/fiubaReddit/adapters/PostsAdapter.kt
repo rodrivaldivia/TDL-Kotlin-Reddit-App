@@ -2,7 +2,6 @@ package com.tdl.fiubaReddit.adapters
 
 import android.content.Context
 import android.content.Intent
-import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,7 +12,6 @@ import com.tdl.fiubaReddit.activitys.PostFullView
 import com.tdl.fiubaReddit.post.Post
 import com.tdl.fiubaReddit.R
 import com.tdl.fiubaReddit.activitys.Comments
-import java.lang.Thread.sleep
 
 class PostsAdapter(private val context: Context,
                    private val dataSource: ArrayList<Post>): BaseAdapter() {

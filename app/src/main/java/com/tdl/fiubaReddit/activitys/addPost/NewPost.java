@@ -1,4 +1,4 @@
-package com.tdl.fiubaReddit.activitys;
+package com.tdl.fiubaReddit.activitys.addPost;
 
 import android.content.Intent;
 import android.os.Bundle;
