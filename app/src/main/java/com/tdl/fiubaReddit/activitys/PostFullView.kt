@@ -8,10 +8,8 @@ import com.bumptech.glide.Glide
 import com.tdl.fiubaReddit.R
 import com.tdl.fiubaReddit.post.Post
 import com.tdl.fiubaReddit.adapters.CommentsAdapter
-import com.tdl.fiubaReddit.post.UserComment
 import com.tdl.fiubaReddit.requests.Requests
 import kotlinx.android.synthetic.main.activity_post_full_view.*
-import java.util.*
 
 class PostFullView : AppCompatActivity() {
 
@@ -24,6 +22,7 @@ class PostFullView : AppCompatActivity() {
 
         post = intent.getSerializableExtra("Post") as Post
         postId = post.postId
+        val votes = findViewById<TextView>(R.id.postVotes)
 
         // Display
         val adapter = CommentsAdapter(this, post.comments)
@@ -32,17 +31,20 @@ class PostFullView : AppCompatActivity() {
         post_title.text = post.title
         Glide.with(this).load(post.image).into(post_image)
         post_body.text = post.text
+        votes.text = post.votes.toString()
 
         upvoteButton.setOnClickListener {
             val mToast = Toast.makeText(this,"upvoted", Toast.LENGTH_SHORT)
             mToast.show()
-            post.unaryPlus();
+            post.addVotes();
+            votes.setText(post.votes.toString())
         }
 
         downvoteButton.setOnClickListener { view ->
             val mToast = Toast.makeText(this,"downvoted", Toast.LENGTH_SHORT)
             mToast.show()
-            post.unaryMinus()
+            post.reduceVotes()
+            votes.setText(post.votes.toString())
         }
 
         messageButton.setOnClickListener {

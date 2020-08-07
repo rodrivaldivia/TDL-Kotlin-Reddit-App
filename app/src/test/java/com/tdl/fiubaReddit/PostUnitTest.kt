@@ -14,7 +14,7 @@ class PostUnitTest {
     @Test
     fun checkPostTitle() {
 
-        val unPost = Post("My first post")
+        val unPost = Post("My first post",null,null,0)
 
         assertEquals("My first post", unPost.title)
     }
@@ -22,9 +22,9 @@ class PostUnitTest {
     @Test
     fun checkGetUpVotes() {
 
-        val unPost = Post("A post")
+        val unPost = Post("A post",null,null,0)
 
-        +unPost
+        unPost.addVotes()
 
         assertEquals(1, unPost.votes)
     }
@@ -32,10 +32,10 @@ class PostUnitTest {
     @Test
     fun checkGetDownVotes() {
 
-        val unPost = Post("A post")
+        val unPost = Post("A post",null,null,0)
 
-        -unPost
-        -unPost
+        unPost.reduceVotes()
+        unPost.reduceVotes()
 
         assertEquals(-2, unPost.votes)
     }
@@ -43,7 +43,7 @@ class PostUnitTest {
     @Test
     fun checkGetTextNotNull() {
 
-        val unPost = Post("A post", "Body of the post")
+        val unPost = Post("A post", "Body of the post",null,0)
 
         assertEquals("Body of the post", unPost.text)
     }
@@ -51,7 +51,7 @@ class PostUnitTest {
     @Test
     fun checkGetTextNull() {
 
-        val unPost = Post("A post")
+        val unPost = Post("A post",null,null,0)
 
         assertEquals(null, unPost.text)
     }
@@ -62,7 +62,8 @@ class PostUnitTest {
         val unPost = Post(
             "A post",
             "Body of the post",
-            "https://i.imgur.com/AHMWTFa.jpeg"
+            "https://i.imgur.com/AHMWTFa.jpeg",
+            10
         )
 
         assertEquals("https://i.imgur.com/AHMWTFa.jpeg", unPost.image)
@@ -71,7 +72,7 @@ class PostUnitTest {
     @Test
     fun checkGetImageNull() {
 
-        val unPost = Post("A post")
+        val unPost = Post("A post",null,null,0)
 
         assertEquals(null, unPost.image)
     }

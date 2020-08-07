@@ -17,16 +17,14 @@
 <!--        android:layout_width="wrap_content"-->
 <!--        android:layout_height="wrap_content"-->
 <!--        android:orientation="vertical">-->
-        <ListView
-            tools:showIn="@layout/activity_posts"
-            tools:context="com.tdl.fiubaReddit.activitys.Posts"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            xmlns:tools="http://schemas.android.com/tools"
-            android:id="@+id/posts_list_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-        </ListView>
+<ListView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/posts_list_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.tdl.fiubaReddit.activitys.Posts"
+    tools:showIn="@layout/activity_posts"></ListView>
 <!--    </LinearLayout>-->
 <!--</androidx.core.widget.NestedScrollView>-->
