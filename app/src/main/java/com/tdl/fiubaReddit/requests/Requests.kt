@@ -11,16 +11,52 @@ import com.tdl.fiubaReddit.post.UserComment
 import java.util.*
 import kotlin.collections.ArrayList
 
+interface PostsLoader {
+    fun getPosts(context: Context): ArrayList<Post>
+}
+
 class Requests {
 
-    companion object {
+    companion object: PostsLoader {
+        val url = "http://192.168.0.125:8080/post";
+
+        override fun getPosts(context: Context): ArrayList<Post> {
+            val posts = arrayListOf<Post>()
+            Fuel.get(url)
+                .response { request, response, result ->
+                    val (bytes, error) = result
+                    if (bytes != null) {
+                        println("[response bytes] ${String(bytes)}")
+                        val parser: Parser = Parser.default()
+                        val array =
+                            parser.parse(StringBuilder(String(bytes))) as JsonArray<JsonObject>
+                        val titles = array.string("title")
+                        val texts = array.string("text")
+                        val images = array.string("image")
+
+                        for (i in 0..titles.size - 1) {
+                            val post = Post(titles[i].toString(), texts[i], images[i], i)
+                            posts.add(post)
+                        }
+                    }
+
+                }
+
+            return posts;
+        }
+    }
+
+}
+
+
+   /* companion object {
 
         val url = "http://192.168.0.125:8080/post";
 
         val unPost = Post(
-            "Un gatito",
-            "Esta es una foto de un gatito OwO",
-            "https://i.imgur.com/F0cpTWT.jpg",
+            "Uno blanco",
+            "Tendra frio?",
+            "https://i.pinimg.com/originals/b8/2a/00/b82a00bc0c7c4334998990dbd24cff97.jpg",
             0
         )
 
@@ -52,21 +88,7 @@ class Requests {
             posts[0].comments.add(
                 UserComment(
                     "anonimo",
-                    "hi",
-                    "https://www.pinclipart.com/picdir/big/193-1931067_pixel-clipart-finn-50-x-50-px-png.png"
-                )
-            )
-            posts[0].comments.add(
-                UserComment(
-                    "anonimo",
-                    "holis",
-                    "https://www.pinclipart.com/picdir/big/193-1931067_pixel-clipart-finn-50-x-50-px-png.png"
-                )
-            )
-            posts[0].comments.add(
-                UserComment(
-                    "anonimo",
-                    "aloha",
+                    "Que lindo!",
                     "https://www.pinclipart.com/picdir/big/193-1931067_pixel-clipart-finn-50-x-50-px-png.png"
                 )
             )
@@ -140,3 +162,4 @@ class Requests {
         }
     }
 }
+*/

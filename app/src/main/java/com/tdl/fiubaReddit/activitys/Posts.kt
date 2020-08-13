@@ -18,6 +18,7 @@ class Posts() : AppCompatActivity() {
 
     // private val nada: Unit = Requests.postPost(this,"un titulo","un texto","https://i.imgur.com/F0cpTWT.jpg")
     // private val nada: Unit = Requests.postComment(this,1,"un texto","https://i.imgur.com/F0cpTWT.jpg")
+    // private var posts: ArrayList<Post> = Requests.getPosts(this);
     private var posts: ArrayList<Post> = Requests.getPostsOFFLINE(); // getPosts(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,7 +45,7 @@ class Posts() : AppCompatActivity() {
         if (requestCode == 2 ) {
             if (resultCode == RESULT_FIRST_USER) {
 
-                posts = Requests.getPostsOFFLINE()
+                posts = Requests.getPostsOFFLINE();
                 println("Result $resultCode, First_User:$RESULT_FIRST_USER")
 
                 val listView = findViewById<ListView>(R.id.posts_list_view)

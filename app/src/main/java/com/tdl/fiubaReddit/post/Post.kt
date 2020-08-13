@@ -7,7 +7,7 @@ class Post(val title: String, val text: String? = null, val image: String? = nul
 
     var comments: Vector<UserComment> = Vector<UserComment>(1,1)
 
-    var votes: Int = Random().nextInt(1000)-500
+    var votes: Int = Random().nextInt(100)-5
 
     private var upVoteWasClicked = false;
     private var downVoteWasClicked = false;
